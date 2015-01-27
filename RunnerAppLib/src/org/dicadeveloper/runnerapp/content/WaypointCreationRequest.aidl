@@ -1,0 +1,2 @@
+package org.dicadeveloper.runnerapp.content;
+parcelable WaypointCreationRequest;

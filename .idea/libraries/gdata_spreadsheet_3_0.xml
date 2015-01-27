@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="gdata-spreadsheet-3.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/MyTracks/.google_apis/gdata-spreadsheet-2.1/gdata-spreadsheet-3.0/gdata-spreadsheet-meta-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/MyTracks/.google_apis/gdata-spreadsheet-2.1/gdata-spreadsheet-3.0/gdata-spreadsheet-3.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/MyTracks/.google_apis/gdata-spreadsheet-2.1/gdata-spreadsheet-3.0/gdata-spreadsheet-3.0-src.jar!/" />
+      <root url="jar://$PROJECT_DIR$/MyTracks/.google_apis/gdata-spreadsheet-2.1/gdata-spreadsheet-3.0/jsr305.jar!/" />
+      <root url="jar://$PROJECT_DIR$/MyTracks/.google_apis/gdata-spreadsheet-2.1/gdata-spreadsheet-3.0/gdata-spreadsheet-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/MyTracks/.google_apis/gdata-spreadsheet-2.1/gdata-spreadsheet-3.0/gdata-client-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
