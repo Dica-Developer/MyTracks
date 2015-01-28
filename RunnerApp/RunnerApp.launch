@@ -8,8 +8,8 @@
 <booleanAttribute key="com.android.ide.eclipse.adt.target" value="false"/>
 <booleanAttribute key="com.android.ide.eclipse.adt.wipedata" value="false"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/MyTracks"/>
-<listEntry value="/MyTracks/AndroidManifest.xml"/>
+<listEntry value="/RunnerApp"/>
+<listEntry value="/RunnerApp/AndroidManifest.xml"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>

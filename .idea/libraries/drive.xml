@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="drive">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/MyTracks/.google_apis/drive-v2r30lv1.12.0-beta/drive/google-api-services-drive-v2-rev30-1.12.0-beta-javadoc.jar!/" />
-      <root url="jar://$PROJECT_DIR$/MyTracks/.google_apis/drive-v2r30lv1.12.0-beta/drive/google-api-services-drive-v2-rev30-1.12.0-beta-sources.jar!/" />
-      <root url="jar://$PROJECT_DIR$/MyTracks/.google_apis/drive-v2r30lv1.12.0-beta/drive/google-api-services-drive-v2-rev30-1.12.0-beta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RunnerApp/.google_apis/drive-v2r30lv1.12.0-beta/drive/google-api-services-drive-v2-rev30-1.12.0-beta-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RunnerApp/.google_apis/drive-v2r30lv1.12.0-beta/drive/google-api-services-drive-v2-rev30-1.12.0-beta-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RunnerApp/.google_apis/drive-v2r30lv1.12.0-beta/drive/google-api-services-drive-v2-rev30-1.12.0-beta.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

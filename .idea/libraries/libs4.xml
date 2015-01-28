@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="libs4">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/MyTracksTest_E2E/libs/robotium-solo-5.0.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/MyTracksTest_E2E/libs/AndroidMockGenerator.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RunnerAppTest_E2E/libs/robotium-solo-5.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RunnerAppTest_E2E/libs/AndroidMockGenerator.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
