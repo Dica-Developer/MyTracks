@@ -876,12 +876,12 @@ limitations under the License.
     Stopping GPS
   </string>
   <string name="gps_wait_for_better_signal"
-    translation_description="In the main view, the message on the top indicating My Tracks is
+    translation_description="In the main view, the message on the top indicating RunnerApp is
       waiting for a better GPS signal.">
     Waiting for a better GPS signal
   </string>
   <string name="gps_wait_for_signal"
-    translation_description="In the main view, the message on the top indicating My Tracks is
+    translation_description="In the main view, the message on the top indicating RunnerApp is
       waiting for GPS signal.">
     Waiting for GPS signal
   </string>
@@ -909,8 +909,8 @@ limitations under the License.
     My Location
   </string>
   <string name="image_my_tracks_logo"
-    translation_description="The accessibility description for the 'My Tracks' logo.">
-    My Tracks logo
+    translation_description="The accessibility description for the 'RunnerApp' logo.">
+    RunnerApp logo
   </string>
   <string name="image_pause"
     translation_description="The accessibility description for the pause button.">
@@ -1147,7 +1147,7 @@ limitations under the License.
     Help forum
   </string>
   <string name="menu_help_play_store"
-    translation_description="In the menu, to go to the My Tracks Google Play Store page.
+    translation_description="In the menu, to go to the RunnerApp Google Play Store page.
 
       Character limit: ~20 (1 line)">
     View in Google Play Store
@@ -1303,10 +1303,10 @@ limitations under the License.
     Voice frequency
   </string>
 
-  <!-- My Tracks -->
+  <!-- RunnerApp -->
   <string name="my_tracks_app_name"
-    translation_description="The My Tracks application name.">
-      My Tracks
+    translation_description="The RunnerApp application name.">
+      RunnerApp
   </string>
   <string name="my_tracks_recording_service"
     translation_description="When viewing the 'Running services' on Android, the name of the My
@@ -1319,24 +1319,24 @@ limitations under the License.
   <!-- Permission -->
   <string name="permission_notification_description"
     translation_description="The permission description the Google Play Store shows during app
-      installation when the app wants to receive Google My Tracks notifications.">
-    Allows the application to receive notifications when Google My Tracks starts or stops a
+      installation when the app wants to receive Google RunnerApp notifications.">
+    Allows the application to receive notifications when Google RunnerApp starts or stops a
     recording.
   </string>
   <string name="permission_notification_label"
     translation_description="The permission label the Google Play Store shows during app
-      installation when the app wants to receive Google My Tracks notifications.">
-    receive Google My Tracks notifications
+      installation when the app wants to receive Google RunnerApp notifications.">
+    receive Google RunnerApp notifications
   </string>
   <string name="permission_read_description"
     translation_description="The permission description the Google Play Store shows during app
-      installation when the app wants to read Google My Tracks data.">
-    Allows the application to read Google My Tracks data.
+      installation when the app wants to read Google RunnerApp data.">
+    Allows the application to read Google RunnerApp data.
   </string>
   <string name="permission_read_label"
     translation_description="The permission label the Google Play Store shows during app
-      installation when the app wants to read My Tracks data.">
-    read Google My Tracks data
+      installation when the app wants to read RunnerApp data.">
+    read Google RunnerApp data
   </string>
   <string name="permission_request_message"
     translation_description="The message when requesting permission.
@@ -1344,24 +1344,24 @@ limitations under the License.
     for account %1$s
   </string>
   <string name="permission_request_title"
-    translation_description="The title when the 'My Tracks' app is requesting permission.">
-    My Tracks requesting permission
+    translation_description="The title when the 'RunnerApp' app is requesting permission.">
+    RunnerApp requesting permission
   </string>
   <string name="permission_write_description"
     translation_description="The permission description the Google Play Store shows during app
-      installation when the app wants to write data to My Tracks.">
-    Allows the application to write data to Google My Tracks and start/stop Google My Tracks
+      installation when the app wants to write data to RunnerApp.">
+    Allows the application to write data to Google RunnerApp and start/stop Google RunnerApp
     recording.
   </string>
   <string name="permission_write_label"
     translation_description="The permission label the Google Play Store shows during app
-      installation when the app wants to write data to My Tracks.">
-    write data to Google My Tracks and start/stop Google My Tracks recording
+      installation when the app wants to write data to RunnerApp.">
+    write data to Google RunnerApp and start/stop Google RunnerApp recording
   </string>
 
   <!-- Search -->
   <string name="search_global_description"
-    translation_description="Description of what is searched in My Tracks, to be displayed in the
+    translation_description="Description of what is searched in RunnerApp, to be displayed in the
       global system search settings.">
     Tracks and markers
   </string>
@@ -1385,13 +1385,13 @@ limitations under the License.
   <!-- Send Google -->
   <string name="send_google_by_my_tracks"
     translation_description="When sending a track to Google, a note indicating it is created by
-      Google My Tracks on Android.
+      Google RunnerApp on Android.
 
       %1$s the html anchor opening tag. Place this placeholder before the app name,
-      'Google My Tracks'.
+      'Google RunnerApp'.
       %2$s the html anchor closing tag. Place this placeholder after the app name,
-      'Google My Tracks'.">
-    Created by %1$sGoogle My Tracks%2$s on Android
+      'Google RunnerApp'.">
+    Created by %1$sGoogle RunnerApp%2$s on Android
   </string>
   <string name="send_google_choose_account_title"
     translation_description="When sending to Google, the dialog title to choose a Google account.">
@@ -1905,7 +1905,7 @@ limitations under the License.
   <!-- Settings Sharing -->
   <string name="settings_sharing_allow_access"
     translation_description="In the 'Sharing' settings, the checkbox option to allow third party
-      apps access to the My Tracks data.
+      apps access to the RunnerApp data.
 
       Character limit: ~23 (1 line)">
     Allow access
@@ -1913,9 +1913,9 @@ limitations under the License.
   <string name="settings_sharing_allow_access_confirm_message"
     translation_description="In the 'Sharing' settings, after checking the 'Allow access' checkbox,
       the confirmation dialog message informing the user that other apps, including apps installed
-      in the future, will be able to control and access My Tracks data. In addition, no further
+      in the future, will be able to control and access RunnerApp data. In addition, no further
       notification of third party app access will be shown.">
-    Other apps, including future apps, will be able to control and access My Tracks data. There will
+    Other apps, including future apps, will be able to control and access RunnerApp data. There will
     be no further notification.
   </string>
   <string name="settings_sharing_allow_access_confirm_title"
@@ -1926,7 +1926,7 @@ limitations under the License.
   <string name="settings_sharing_allow_access_summary"
     translation_description="In the 'Sharing' settings, the summary for the 'Allow access' checkbox
       option.">
-    Let other apps read, write, start/stop recording My Tracks data
+    Let other apps read, write, start/stop recording RunnerApp data
   </string>
 
   <!-- Settings Stats -->
@@ -2134,7 +2134,7 @@ limitations under the License.
     translation_description="The dialog message to confirm sync to Google Drive.
 
       %1$s account name. E.g., 'foo@foo.com'.
-      %2$s folder name. E.g., 'My Tracks'.">
+      %2$s folder name. E.g., 'RunnerApp'.">
     All files in the %1$s Google Drive &#8216;%2$s&#8217; folder will be imported as new tracks. If
     not desired, move the files to a different folder beforehand.
   </string>
@@ -2161,8 +2161,8 @@ limitations under the License.
     Track %1$d
   </string>
   <string name="track_record_notification"
-    translation_description="When recording a track, the message on the My Tracks notification
-      informing the user that My Tracks is actively recording his track.">
+    translation_description="When recording a track, the message on the RunnerApp notification
+      informing the user that RunnerApp is actively recording his track.">
     Recording your track&#8230;
   </string>
   <string name="track_markers"
@@ -2273,7 +2273,7 @@ limitations under the License.
 
   <!-- Track Widget -->
   <string name="track_widget_config_title"
-    translation_description="Title of the page to configure the My Tracks widget items.">
+    translation_description="Title of the page to configure the RunnerApp widget items.">
     Configure Widget Items
   </string>
 
@@ -2710,7 +2710,7 @@ limitations under the License.
       %2$s time string. E.g., '20 minutes 1 second'.
       %3$s speed/pace string. E.g., '2.2 miles per hour' for speed and
       '30 minutes 1 second per kilometer' for pace.">
-    My Tracks %1$s in %2$s at %3$s
+    RunnerApp %1$s in %2$s at %3$s
   </string>
   <string name="voice_total_distance_kilometers_few"
     translation_description="For voice announcement, to say total distance 'few' kilometers.
@@ -2778,7 +2778,7 @@ limitations under the License.
   <string name="voice_total_distance_zero"
     translation_description="For the voice announcement, the announcement when the current track's
       total distance is zero.">
-    My Tracks total distance zero.
+    RunnerApp total distance zero.
   </string>
 
   <!-- Waypoint Type -->
