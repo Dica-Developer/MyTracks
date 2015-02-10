@@ -35,6 +35,6 @@ Thumbs.db
 
 # Android Studio
 #.idea
-.idea/workspace.xml
+.idea/
 .gradle
 build/

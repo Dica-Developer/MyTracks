@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "org.dicadeveloper.runnerapp"
+        minSdkVersion 9
+        targetSdkVersion 21
+
+        testApplicationId "org.dicadeveloper.runnerapp.test"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles 'proguard.cfg', 'proguard-google-api-client.txt'
+        }
+    }
+}
+
+dependencies {
+    compile project(':RunnerAppLib')
+    //compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.google.android.gms:play-services-location:6.5.87'
+    //compile 'com.google.android.gms:play-services-maps:6.5.87'
+    //compile 'com.android.support:support-v4:21.0.0'
+    compile('com.google.http-client:google-http-client-gson:1.19.0') {
+        exclude module: 'org.apache.httpcomponents:httpclient:4.0.1';
+    }
+    //compile 'com.google.code.gson:gson:2.1'
+    compile 'com.google.guava:guava:17.0'
+    compile 'org.osmdroid:osmdroid-android:4.3'
+    //compile 'org.osmdroid:osmdroid-third-party:4.3'
+    compile files('libs/antlib.jar')
+    compile files('libs/gdata-client-1.0.jar')
+    compile files('libs/gdata-client-meta-1.0.jar')
+    compile files('libs/gdata-core-1.0.jar')
+    compile files('libs/gdata-spreadsheet-3.0.jar')
+    compile files('libs/gdata-spreadsheet-meta-3.0.jar')
+    compile files('libs/google-api-client-1.12.0-beta.jar')
+    compile files('libs/google-api-client-android-1.12.0-beta.jar')
+    compile files('libs/google-api-services-drive-v2-rev30-1.12.0-beta.jar')
+    compile files('libs/google-api-services-fusiontables-v1-rev16-1.12.0-beta.jar')
+    compile files('libs/google-common.jar')
+    //compile files('libs/google-http-client-1.12.0-beta.jar')
+    compile files('libs/google-http-client-android-1.12.0-beta.jar')
+    //compile files('libs/google-http-client-jackson-1.12.0-beta.jar')
+    //compile files('libs/google-http-client-jackson2-1.12.0-beta.jar')
+    compile files('libs/google-oauth-client-1.12.0-beta.jar')
+    compile files('libs/jackson-core-2.0.5.jar')
+    compile files('libs/jackson-core-asl-1.9.9.jar')
+    //compile files('libs/jsr305.jar')
+    compile files('libs/libGoogleAnalytics.jar')
+    androidTestCompile 'com.jayway.android.robotium:robotium-solo:3.3'
+    androidTestCompile files('libs/AndroidMockGenerator.jar')
+    //compile 'com.sun.net.httpserver:http:20070405'
+
+}
