@@ -16,43 +16,6 @@
 
 package org.dicadeveloper.runnerapp;
 
-import org.dicadeveloper.runnerapp.content.MyTracksProviderUtils;
-import org.dicadeveloper.runnerapp.content.Track;
-import org.dicadeveloper.runnerapp.content.TracksColumns;
-import org.dicadeveloper.runnerapp.fragments.ChooseAccountDialogFragment;
-import org.dicadeveloper.runnerapp.fragments.ChooseAccountDialogFragment.ChooseAccountCaller;
-import org.dicadeveloper.runnerapp.fragments.ConfirmSyncDialogFragment;
-import org.dicadeveloper.runnerapp.fragments.ConfirmSyncDialogFragment.ConfirmSyncCaller;
-import org.dicadeveloper.runnerapp.fragments.EulaDialogFragment;
-import org.dicadeveloper.runnerapp.fragments.EulaDialogFragment.EulaCaller;
-import org.dicadeveloper.runnerapp.fragments.FileTypeDialogFragment;
-import org.dicadeveloper.runnerapp.fragments.FileTypeDialogFragment.FileTypeCaller;
-import org.dicadeveloper.runnerapp.fragments.PlayMultipleDialogFragment;
-import org.dicadeveloper.runnerapp.fragments.PlayMultipleDialogFragment.PlayMultipleCaller;
-import org.dicadeveloper.runnerapp.io.file.TrackFileFormat;
-import org.dicadeveloper.runnerapp.io.file.exporter.SaveActivity;
-import org.dicadeveloper.runnerapp.io.file.importer.ImportActivity;
-import org.dicadeveloper.runnerapp.io.sync.SyncUtils;
-import org.dicadeveloper.runnerapp.services.ITrackRecordingService;
-import org.dicadeveloper.runnerapp.services.MyTracksLocationManager;
-import org.dicadeveloper.runnerapp.services.TrackRecordingServiceConnection;
-import org.dicadeveloper.runnerapp.settings.SettingsActivity;
-import org.dicadeveloper.runnerapp.util.AnalyticsUtils;
-import org.dicadeveloper.runnerapp.util.ApiAdapterFactory;
-import org.dicadeveloper.runnerapp.util.EulaUtils;
-import org.dicadeveloper.runnerapp.util.GoogleLocationUtils;
-import org.dicadeveloper.runnerapp.util.IntentUtils;
-import org.dicadeveloper.runnerapp.util.ListItemUtils;
-import org.dicadeveloper.runnerapp.util.PreferencesUtils;
-import org.dicadeveloper.runnerapp.util.StringUtils;
-import org.dicadeveloper.runnerapp.util.TrackIconUtils;
-import org.dicadeveloper.runnerapp.util.TrackRecordingServiceConnectionUtils;
-import org.dicadeveloper.runnerapp.util.TrackUtils;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import org.dicadeveloper.runnerapp.BuildConfig;
-import org.dicadeveloper.runnerapp.R;
-
 import android.accounts.Account;
 import android.app.Dialog;
 import android.app.SearchManager;
@@ -84,6 +47,41 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+
+import org.dicadeveloper.runnerapp.content.MyTracksProviderUtils;
+import org.dicadeveloper.runnerapp.content.Track;
+import org.dicadeveloper.runnerapp.content.TracksColumns;
+import org.dicadeveloper.runnerapp.fragments.ChooseAccountDialogFragment;
+import org.dicadeveloper.runnerapp.fragments.ChooseAccountDialogFragment.ChooseAccountCaller;
+import org.dicadeveloper.runnerapp.fragments.ConfirmSyncDialogFragment;
+import org.dicadeveloper.runnerapp.fragments.ConfirmSyncDialogFragment.ConfirmSyncCaller;
+import org.dicadeveloper.runnerapp.fragments.EulaDialogFragment;
+import org.dicadeveloper.runnerapp.fragments.EulaDialogFragment.EulaCaller;
+import org.dicadeveloper.runnerapp.fragments.FileTypeDialogFragment;
+import org.dicadeveloper.runnerapp.fragments.FileTypeDialogFragment.FileTypeCaller;
+import org.dicadeveloper.runnerapp.fragments.PlayMultipleDialogFragment;
+import org.dicadeveloper.runnerapp.fragments.PlayMultipleDialogFragment.PlayMultipleCaller;
+import org.dicadeveloper.runnerapp.io.file.TrackFileFormat;
+import org.dicadeveloper.runnerapp.io.file.exporter.SaveActivity;
+import org.dicadeveloper.runnerapp.io.file.importer.ImportActivity;
+import org.dicadeveloper.runnerapp.io.sync.SyncUtils;
+import org.dicadeveloper.runnerapp.services.ITrackRecordingService;
+import org.dicadeveloper.runnerapp.services.MyTracksLocationManager;
+import org.dicadeveloper.runnerapp.services.TrackRecordingServiceConnection;
+import org.dicadeveloper.runnerapp.settings.SettingsActivity;
+import org.dicadeveloper.runnerapp.util.ApiAdapterFactory;
+import org.dicadeveloper.runnerapp.util.EulaUtils;
+import org.dicadeveloper.runnerapp.util.GoogleLocationUtils;
+import org.dicadeveloper.runnerapp.util.IntentUtils;
+import org.dicadeveloper.runnerapp.util.ListItemUtils;
+import org.dicadeveloper.runnerapp.util.PreferencesUtils;
+import org.dicadeveloper.runnerapp.util.StringUtils;
+import org.dicadeveloper.runnerapp.util.TrackIconUtils;
+import org.dicadeveloper.runnerapp.util.TrackRecordingServiceConnectionUtils;
+import org.dicadeveloper.runnerapp.util.TrackUtils;
 
 import java.util.Locale;
 
@@ -242,19 +240,19 @@ public class TrackListActivity extends AbstractSendToGoogleActivity
     public void onClick(View v) {
       if (recordingTrackId == PreferencesUtils.RECORDING_TRACK_ID_DEFAULT) {
         // Not recording -> Recording
-        AnalyticsUtils.sendPageViews(TrackListActivity.this, AnalyticsUtils.ACTION_RECORD_TRACK);
+        //AnalyticsUtils.sendPageViews(TrackListActivity.this, AnalyticsUtils.ACTION_RECORD_TRACK);
         updateMenuItems(false, true);
         startRecording();
       } else {
         if (recordingTrackPaused) {
           // Paused -> Resume
-          AnalyticsUtils.sendPageViews(TrackListActivity.this, AnalyticsUtils.ACTION_RESUME_TRACK);
+          //AnalyticsUtils.sendPageViews(TrackListActivity.this, AnalyticsUtils.ACTION_RESUME_TRACK);
           updateMenuItems(false, true);
           TrackRecordingServiceConnectionUtils.resumeTrack(trackRecordingServiceConnection);
           trackController.update(true, false);
         } else {
           // Recording -> Paused
-          AnalyticsUtils.sendPageViews(TrackListActivity.this, AnalyticsUtils.ACTION_PAUSE_TRACK);
+          //AnalyticsUtils.sendPageViews(TrackListActivity.this, AnalyticsUtils.ACTION_PAUSE_TRACK);
           updateMenuItems(false, true);
           TrackRecordingServiceConnectionUtils.pauseTrack(trackRecordingServiceConnection);
           trackController.update(true, true);
@@ -266,7 +264,7 @@ public class TrackListActivity extends AbstractSendToGoogleActivity
   private final OnClickListener stopListener = new OnClickListener() {
       @Override
     public void onClick(View v) {
-      AnalyticsUtils.sendPageViews(TrackListActivity.this, AnalyticsUtils.ACTION_STOP_RECORDING);
+      //AnalyticsUtils.sendPageViews(TrackListActivity.this, AnalyticsUtils.ACTION_STOP_RECORDING);
       updateMenuItems(false, false);
       TrackRecordingServiceConnectionUtils.stopRecording(
           TrackListActivity.this, trackRecordingServiceConnection, true);
@@ -408,7 +406,7 @@ public class TrackListActivity extends AbstractSendToGoogleActivity
     // Update track recording service connection
     TrackRecordingServiceConnectionUtils.startConnection(this, trackRecordingServiceConnection);
 
-    AnalyticsUtils.sendPageViews(this, AnalyticsUtils.PAGE_TRACK_LIST);
+    //AnalyticsUtils.sendPageViews(this, AnalyticsUtils.PAGE_TRACK_LIST);
   }
 
   @Override
@@ -439,7 +437,7 @@ public class TrackListActivity extends AbstractSendToGoogleActivity
 
     trackRecordingServiceConnection.unbind();
 
-    AnalyticsUtils.dispatch();
+    //AnalyticsUtils.dispatch();
   }
 
   @Override
@@ -628,16 +626,16 @@ public class TrackListActivity extends AbstractSendToGoogleActivity
     Intent intent;
     switch (menuId) {
       case R.id.track_list_export_all:
-        AnalyticsUtils.sendPageViews(
-            this, AnalyticsUtils.ACTION_EXPORT_ALL_PREFIX + trackFileFormat.getExtension());
+        //AnalyticsUtils.sendPageViews(
+        //    this, AnalyticsUtils.ACTION_EXPORT_ALL_PREFIX + trackFileFormat.getExtension());
         intent = IntentUtils.newIntent(this, SaveActivity.class)
             .putExtra(SaveActivity.EXTRA_TRACK_IDS, new long[] {-1L})   
             .putExtra(SaveActivity.EXTRA_TRACK_FILE_FORMAT, (Parcelable) trackFileFormat);
         startActivity(intent);
         break;
       case R.id.track_list_import_all:
-        AnalyticsUtils.sendPageViews(
-            this, AnalyticsUtils.ACTION_IMPORT_ALL_PREFIX + trackFileFormat.getExtension());
+        //AnalyticsUtils.sendPageViews(
+        //    this, AnalyticsUtils.ACTION_IMPORT_ALL_PREFIX + trackFileFormat.getExtension());
         intent = IntentUtils.newIntent(this, ImportActivity.class)
             .putExtra(ImportActivity.EXTRA_IMPORT_ALL, true)
             .putExtra(ImportActivity.EXTRA_TRACK_FILE_FORMAT, (Parcelable) trackFileFormat);

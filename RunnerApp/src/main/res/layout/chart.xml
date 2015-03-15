@@ -18,7 +18,11 @@ limitations under the License.
   android:layout_height="match_parent"
   android:layout_width="match_parent"
   android:orientation="vertical" >
-  <LinearLayout
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:id="@+id/graph" />
+    <LinearLayout
     android:id="@+id/chart_view_layout"
     android:layout_height="0dp"
     android:layout_weight="1"

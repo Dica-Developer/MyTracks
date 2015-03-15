@@ -88,15 +88,15 @@
     <orderEntry type="library" exported="" name="antlib" level="project" />
     <orderEntry type="library" exported="" name="support-v4-21.0.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-location-6.5.87" level="project" />
-    <orderEntry type="library" exported="" name="google-api-services-fusiontables-v1-rev16-1.12.0-beta" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-gson-1.19.0" level="project" />
+    <orderEntry type="library" exported="" name="slf4j-simple-1.7.6" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-android-1.12.0-beta" level="project" />
     <orderEntry type="library" exported="" name="google-common" level="project" />
     <orderEntry type="library" exported="" name="google-api-client-android-1.12.0-beta" level="project" />
+    <orderEntry type="library" exported="" name="graphview-4.0.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="robotium-solo-3.3" level="project" />
     <orderEntry type="library" exported="" name="protobuf-java-2.5.0" level="project" />
-    <orderEntry type="library" exported="" name="gdata-spreadsheet-3.0" level="project" />
-    <orderEntry type="library" exported="" name="libGoogleAnalytics" level="project" />
+    <orderEntry type="library" exported="" name="appcompat-v7-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="jackson-core-asl-1.9.9" level="project" />
     <orderEntry type="library" exported="" name="osmdroid-android-4.3" level="project" />
     <orderEntry type="library" exported="" name="gdata-client-1.0" level="project" />
@@ -108,7 +108,7 @@
     <orderEntry type="library" exported="" name="google-http-client-1.19.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="AndroidMockGenerator" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.0" level="project" />
-    <orderEntry type="library" exported="" name="gdata-spreadsheet-meta-3.0" level="project" />
+    <orderEntry type="library" exported="" name="slf4j-api-1.7.6" level="project" />
     <orderEntry type="library" exported="" name="guava-17.0" level="project" />
     <orderEntry type="library" exported="" name="google-api-services-drive-v2-rev30-1.12.0-beta" level="project" />
     <orderEntry type="library" exported="" name="jackson-core-2.0.5" level="project" />

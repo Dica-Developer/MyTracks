@@ -15,17 +15,16 @@
  */
 package org.dicadeveloper.runnerapp.io.maps;
 
-import org.dicadeveloper.runnerapp.io.fusiontables.SendFusionTablesActivity;
+import android.content.Intent;
+
+import com.google.common.annotations.VisibleForTesting;
+
+import org.dicadeveloper.runnerapp.R;
 import org.dicadeveloper.runnerapp.io.sendtogoogle.AbstractSendActivity;
 import org.dicadeveloper.runnerapp.io.sendtogoogle.AbstractSendAsyncTask;
 import org.dicadeveloper.runnerapp.io.sendtogoogle.SendRequest;
 import org.dicadeveloper.runnerapp.io.sendtogoogle.UploadResultActivity;
-import org.dicadeveloper.runnerapp.io.spreadsheets.SendSpreadsheetsActivity;
 import org.dicadeveloper.runnerapp.util.IntentUtils;
-import org.dicadeveloper.runnerapp.R;
-import com.google.common.annotations.VisibleForTesting;
-
-import android.content.Intent;
 
 /**
  * An activity to send a track to Google Maps.
@@ -59,13 +58,8 @@ public class SendMapsActivity extends AbstractSendActivity {
     if (isCancel) {
       return UploadResultActivity.class;
     } else {
-      if (request.isSendFusionTables()) {
-        return SendFusionTablesActivity.class;
-      } else if (request.isSendSpreadsheets()) {
-        return SendSpreadsheetsActivity.class;
-      } else {
         return UploadResultActivity.class;
-      }
+
     }
   }
 }

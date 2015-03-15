@@ -16,15 +16,6 @@
 
 package org.dicadeveloper.runnerapp.io.sendtogoogle;
 
-import org.dicadeveloper.runnerapp.content.MyTracksProviderUtils;
-import org.dicadeveloper.runnerapp.content.Track;
-import org.dicadeveloper.runnerapp.fragments.ChooseActivityDialogFragment;
-import org.dicadeveloper.runnerapp.fragments.ChooseActivityDialogFragment.ChooseActivityCaller;
-import org.dicadeveloper.runnerapp.util.DialogUtils;
-import org.dicadeveloper.runnerapp.util.IntentUtils;
-import org.dicadeveloper.runnerapp.R;
-import com.google.common.annotations.VisibleForTesting;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -33,6 +24,16 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
+
+import com.google.common.annotations.VisibleForTesting;
+
+import org.dicadeveloper.runnerapp.R;
+import org.dicadeveloper.runnerapp.content.MyTracksProviderUtils;
+import org.dicadeveloper.runnerapp.content.Track;
+import org.dicadeveloper.runnerapp.fragments.ChooseActivityDialogFragment;
+import org.dicadeveloper.runnerapp.fragments.ChooseActivityDialogFragment.ChooseActivityCaller;
+import org.dicadeveloper.runnerapp.util.DialogUtils;
+import org.dicadeveloper.runnerapp.util.IntentUtils;
 
 /**
  * A dialog to show the result of uploading to Google services.
@@ -77,9 +78,9 @@ public class UploadResultActivity extends FragmentActivity implements ChooseActi
     if (id != DIALOG_RESULT_ID) {
       return null;
     }
-    int serviceName;
-    int serviceUrl;
-    boolean success;
+    int serviceName = R.string.export_google_drive;
+    int serviceUrl = R.string.export_google_drive_url;
+    boolean success=false;
     if (sendRequest.isSendDrive()) {
       serviceName = R.string.export_google_drive;
       serviceUrl = R.string.export_google_drive_url;
@@ -88,14 +89,6 @@ public class UploadResultActivity extends FragmentActivity implements ChooseActi
       serviceName = R.string.export_google_maps;
       serviceUrl = R.string.export_google_maps_url;
       success = sendRequest.isMapsSuccess();
-    } else if (sendRequest.isSendFusionTables()) {
-      serviceName = R.string.export_google_fusion_tables;
-      serviceUrl = R.string.export_google_fusion_tables_url;
-      success = sendRequest.isFusionTablesSuccess();
-    } else {
-      serviceName = R.string.export_google_spreadsheets;
-      serviceUrl = R.string.export_google_spreadsheets_url;
-      success = sendRequest.isSpreadsheetsSuccess();
     }
 
     int messageId;

@@ -16,17 +16,15 @@
 
 package org.dicadeveloper.runnerapp.io.drive;
 
-import org.dicadeveloper.runnerapp.io.fusiontables.SendFusionTablesActivity;
+import android.content.Intent;
+
+import org.dicadeveloper.runnerapp.R;
 import org.dicadeveloper.runnerapp.io.maps.SendMapsActivity;
 import org.dicadeveloper.runnerapp.io.sendtogoogle.AbstractSendActivity;
 import org.dicadeveloper.runnerapp.io.sendtogoogle.AbstractSendAsyncTask;
 import org.dicadeveloper.runnerapp.io.sendtogoogle.SendRequest;
 import org.dicadeveloper.runnerapp.io.sendtogoogle.UploadResultActivity;
-import org.dicadeveloper.runnerapp.io.spreadsheets.SendSpreadsheetsActivity;
 import org.dicadeveloper.runnerapp.util.IntentUtils;
-import org.dicadeveloper.runnerapp.R;
-
-import android.content.Intent;
 
 /**
  * An activity to send a track to Google Drive.
@@ -62,11 +60,7 @@ public class SendDriveActivity extends AbstractSendActivity {
     } else {
       if (sendRequest.isSendMaps()) {
         return SendMapsActivity.class;
-      } else if (sendRequest.isSendFusionTables()) {
-        return SendFusionTablesActivity.class;
-      } else if (sendRequest.isSendSpreadsheets()) {
-        return SendSpreadsheetsActivity.class;
-      } else {
+      }   else {
         return UploadResultActivity.class;
       }
     }

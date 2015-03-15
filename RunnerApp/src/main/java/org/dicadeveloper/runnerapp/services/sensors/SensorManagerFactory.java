@@ -20,7 +20,6 @@ import android.content.Context;
 
 import org.dicadeveloper.runnerapp.R;
 import org.dicadeveloper.runnerapp.services.sensors.ant.AntSensorManager;
-import org.dicadeveloper.runnerapp.util.AnalyticsUtils;
 import org.dicadeveloper.runnerapp.util.PreferencesUtils;
 
 /**
@@ -97,19 +96,19 @@ public class SensorManagerFactory {
         context, R.string.sensor_type_key, PreferencesUtils.SENSOR_TYPE_DEFAULT);
 
     if (sensorType.equals(context.getString(R.string.sensor_type_value_ant))) {
-      if (sendPageViews) {
-        AnalyticsUtils.sendPageViews(context, AnalyticsUtils.SENSOR_ANT);
-      }
+      //if (sendPageViews) {
+        //AnalyticsUtils.sendPageViews(context, AnalyticsUtils.SENSOR_ANT);
+      //}
       return new AntSensorManager(context);
     } else if (sensorType.equals(context.getString(R.string.sensor_type_value_zephyr))) {
-      if (sendPageViews) {
-        AnalyticsUtils.sendPageViews(context, AnalyticsUtils.SENSOR_ZEPHYR);
-      }
+      //if (sendPageViews) {
+      //  AnalyticsUtils.sendPageViews(context, AnalyticsUtils.SENSOR_ZEPHYR);
+      //}
       return new ZephyrSensorManager(context);
     } else if (sensorType.equals(context.getString(R.string.sensor_type_value_polar))) {
-      if (sendPageViews) {
-        AnalyticsUtils.sendPageViews(context, AnalyticsUtils.SENSOR_POLAR);
-      }
+      //if (sendPageViews) {
+      //  AnalyticsUtils.sendPageViews(context, AnalyticsUtils.SENSOR_POLAR);
+      //}
       return new PolarSensorManager(context);
     }
     return null;

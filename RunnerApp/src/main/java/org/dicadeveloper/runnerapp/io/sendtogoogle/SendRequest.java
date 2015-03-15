@@ -34,7 +34,6 @@ public class SendRequest implements Parcelable {
   private boolean sendDrive = false;
   private boolean sendMaps = false;
   private boolean sendFusionTables = false;
-  private boolean sendSpreadsheets = false;
 
   private boolean driveSync = false; // to enable Drive sync 
   private boolean driveSharePublic = false; // for driveShare, share as public
@@ -77,20 +76,8 @@ public class SendRequest implements Parcelable {
     this.sendMaps = sendMaps;
   }
 
-  public boolean isSendFusionTables() {
-    return sendFusionTables;
-  }
-
   public void setSendFusionTables(boolean sendFusionTables) {
     this.sendFusionTables = sendFusionTables;
-  }
-
-  public boolean isSendSpreadsheets() {
-    return sendSpreadsheets;
-  }
-
-  public void setSendSpreadsheets(boolean sendSpreadsheets) {
-    this.sendSpreadsheets = sendSpreadsheets;
   }
 
   public boolean isDriveSync() {
@@ -170,7 +157,6 @@ public class SendRequest implements Parcelable {
     sendDrive = in.readByte() == 1;
     sendMaps = in.readByte() == 1;
     sendFusionTables = in.readByte() == 1;
-    sendSpreadsheets = in.readByte() == 1;
     driveSync = in.readByte() == 1;
     driveSharePublic = in.readByte() == 1;
     driveShareEmails = in.readString();
@@ -193,7 +179,6 @@ public class SendRequest implements Parcelable {
     out.writeByte((byte) (sendDrive ? 1 : 0));
     out.writeByte((byte) (sendMaps ? 1 : 0));
     out.writeByte((byte) (sendFusionTables ? 1 : 0));
-    out.writeByte((byte) (sendSpreadsheets ? 1 : 0));
     out.writeByte((byte) (driveSync ? 1 : 0));
     out.writeByte((byte) (driveSharePublic ? 1 : 0));
     out.writeString(driveShareEmails);

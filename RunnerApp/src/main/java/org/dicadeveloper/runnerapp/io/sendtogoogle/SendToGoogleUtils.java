@@ -16,16 +16,6 @@
 
 package org.dicadeveloper.runnerapp.io.sendtogoogle;
 
-import org.dicadeveloper.runnerapp.content.Track;
-import org.dicadeveloper.runnerapp.stats.TripStatistics;
-import org.dicadeveloper.runnerapp.util.LocationUtils;
-import com.google.android.gms.auth.GoogleAuthException;
-import org.dicadeveloper.runnerapp.R;
-import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.api.services.drive.DriveScopes;
-import com.google.api.services.fusiontables.FusiontablesScopes;
-import com.google.common.annotations.VisibleForTesting;
-
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -33,6 +23,16 @@ import android.content.Intent;
 import android.location.Location;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+
+import com.google.android.gms.auth.GoogleAuthException;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.services.drive.DriveScopes;
+import com.google.common.annotations.VisibleForTesting;
+
+import org.dicadeveloper.runnerapp.R;
+import org.dicadeveloper.runnerapp.content.Track;
+import org.dicadeveloper.runnerapp.stats.TripStatistics;
+import org.dicadeveloper.runnerapp.util.LocationUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,12 +49,6 @@ public class SendToGoogleUtils {
 
   public static final String DRIVE_SCOPE = DriveScopes.DRIVE;
   public static final int DRIVE_NOTIFICATION_ID = 1;
-
-  public static final String FUSION_TABLES_SCOPE = FusiontablesScopes.FUSIONTABLES;
-  public static final int FUSION_TABLES_NOTIFICATION_ID = 2;
-
-  public static final String SPREADSHEETS_SCOPE = "https://spreadsheets.google.com/feeds";
-  public static final int SPREADSHEETS_NOTIFICATION_ID = 3;
   
   private SendToGoogleUtils() {}
 

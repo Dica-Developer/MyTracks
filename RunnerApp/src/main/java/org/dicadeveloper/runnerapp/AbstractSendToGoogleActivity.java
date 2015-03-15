@@ -16,33 +16,6 @@
 
 package org.dicadeveloper.runnerapp;
 
-import org.dicadeveloper.runnerapp.fragments.ConfirmDeleteDialogFragment;
-import org.dicadeveloper.runnerapp.fragments.ConfirmDeleteDialogFragment.ConfirmDeleteCaller;
-import org.dicadeveloper.runnerapp.fragments.ExportDialogFragment.ExportType;
-import org.dicadeveloper.runnerapp.fragments.InstallEarthDialogFragment;
-import org.dicadeveloper.runnerapp.fragments.ShareTrackDialogFragment;
-import org.dicadeveloper.runnerapp.fragments.ShareTrackDialogFragment.ShareTrackCaller;
-import org.dicadeveloper.runnerapp.io.drive.SendDriveActivity;
-import org.dicadeveloper.runnerapp.io.file.TrackFileFormat;
-import org.dicadeveloper.runnerapp.io.file.exporter.SaveActivity;
-import org.dicadeveloper.runnerapp.io.fusiontables.SendFusionTablesActivity;
-import org.dicadeveloper.runnerapp.io.gdata.maps.MapsConstants;
-import org.dicadeveloper.runnerapp.io.maps.SendMapsActivity;
-import org.dicadeveloper.runnerapp.io.sendtogoogle.SendRequest;
-import org.dicadeveloper.runnerapp.io.sendtogoogle.SendToGoogleUtils;
-import org.dicadeveloper.runnerapp.io.sendtogoogle.UploadResultActivity;
-import org.dicadeveloper.runnerapp.io.spreadsheets.SendSpreadsheetsActivity;
-import org.dicadeveloper.runnerapp.io.sync.SyncUtils;
-import org.dicadeveloper.runnerapp.services.TrackRecordingServiceConnection;
-import org.dicadeveloper.runnerapp.services.tasks.CheckPermissionAsyncTask;
-import org.dicadeveloper.runnerapp.services.tasks.CheckPermissionAsyncTask.CheckPermissionCaller;
-import org.dicadeveloper.runnerapp.util.AnalyticsUtils;
-import org.dicadeveloper.runnerapp.util.GoogleEarthUtils;
-import org.dicadeveloper.runnerapp.util.IntentUtils;
-import org.dicadeveloper.runnerapp.util.PreferencesUtils;
-import org.dicadeveloper.runnerapp.util.TrackRecordingServiceConnectionUtils;
-import org.dicadeveloper.runnerapp.R;
-
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
@@ -55,6 +28,29 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Toast;
+
+import org.dicadeveloper.runnerapp.fragments.ConfirmDeleteDialogFragment;
+import org.dicadeveloper.runnerapp.fragments.ConfirmDeleteDialogFragment.ConfirmDeleteCaller;
+import org.dicadeveloper.runnerapp.fragments.ExportDialogFragment.ExportType;
+import org.dicadeveloper.runnerapp.fragments.InstallEarthDialogFragment;
+import org.dicadeveloper.runnerapp.fragments.ShareTrackDialogFragment;
+import org.dicadeveloper.runnerapp.fragments.ShareTrackDialogFragment.ShareTrackCaller;
+import org.dicadeveloper.runnerapp.io.drive.SendDriveActivity;
+import org.dicadeveloper.runnerapp.io.file.TrackFileFormat;
+import org.dicadeveloper.runnerapp.io.file.exporter.SaveActivity;
+import org.dicadeveloper.runnerapp.io.gdata.maps.MapsConstants;
+import org.dicadeveloper.runnerapp.io.maps.SendMapsActivity;
+import org.dicadeveloper.runnerapp.io.sendtogoogle.SendRequest;
+import org.dicadeveloper.runnerapp.io.sendtogoogle.SendToGoogleUtils;
+import org.dicadeveloper.runnerapp.io.sendtogoogle.UploadResultActivity;
+import org.dicadeveloper.runnerapp.io.sync.SyncUtils;
+import org.dicadeveloper.runnerapp.services.TrackRecordingServiceConnection;
+import org.dicadeveloper.runnerapp.services.tasks.CheckPermissionAsyncTask;
+import org.dicadeveloper.runnerapp.services.tasks.CheckPermissionAsyncTask.CheckPermissionCaller;
+import org.dicadeveloper.runnerapp.util.GoogleEarthUtils;
+import org.dicadeveloper.runnerapp.util.IntentUtils;
+import org.dicadeveloper.runnerapp.util.PreferencesUtils;
+import org.dicadeveloper.runnerapp.util.TrackRecordingServiceConnectionUtils;
 
 import java.io.IOException;
 
@@ -124,22 +120,6 @@ public abstract class AbstractSendToGoogleActivity extends AbstractMyTracksActiv
           onPermissionFailure();
         }
         break;
-      case FUSION_TABLES_REQUEST_CODE:
-        SendToGoogleUtils.cancelNotification(this, SendToGoogleUtils.FUSION_TABLES_NOTIFICATION_ID);
-        if (resultCode == Activity.RESULT_OK) {
-          onFusionTablesSuccess();
-        } else {
-          onPermissionFailure();
-        }
-        break;
-      case SPREADSHEETS_REQUEST_CODE:
-        SendToGoogleUtils.cancelNotification(this, SendToGoogleUtils.SPREADSHEETS_NOTIFICATION_ID);
-        if (resultCode == Activity.RESULT_OK) {
-          onSpreadsheetsPermissionSuccess();
-        } else {
-          onPermissionFailure();
-        }
-        break;
       case DELETE_REQUEST_CODE:
         onDeleted();
         break;
@@ -154,7 +134,7 @@ public abstract class AbstractSendToGoogleActivity extends AbstractMyTracksActiv
    * @param trackId the track id
    */
   protected void shareTrack(long trackId) {
-    AnalyticsUtils.sendPageViews(this, AnalyticsUtils.ACTION_SHARE_DRIVE);
+    //AnalyticsUtils.sendPageViews(this, AnalyticsUtils.ACTION_SHARE_DRIVE);
     ShareTrackDialogFragment.newInstance(trackId)
         .show(getSupportFragmentManager(), ShareTrackDialogFragment.SHARE_TRACK_DIALOG_TAG);
   }
@@ -171,25 +151,21 @@ public abstract class AbstractSendToGoogleActivity extends AbstractMyTracksActiv
 
   protected void exportTrackToGoogle(long trackId, ExportType exportType, Account account) {
     sendRequest = new SendRequest(trackId);
-    String pageView;
+    //String pageView;
     switch (exportType) {
       case GOOGLE_DRIVE:
-        pageView = AnalyticsUtils.ACTION_EXPORT_DRIVE;
+        //pageView = AnalyticsUtils.ACTION_EXPORT_DRIVE;
         sendRequest.setSendDrive(true);
         break;
       case GOOGLE_MAPS:
-        pageView = AnalyticsUtils.ACTION_EXPORT_MAPS;
+        //pageView = AnalyticsUtils.ACTION_EXPORT_MAPS;
         sendRequest.setSendMaps(true);
         break;
-      case GOOGLE_FUSION_TABLES:
-        pageView = AnalyticsUtils.ACTION_EXPORT_FUSION_TABLES;
-        sendRequest.setSendFusionTables(true);
-        break;
       default:
-        pageView = AnalyticsUtils.ACTION_EXPORT_SPREADSHEETS;
-        sendRequest.setSendSpreadsheets(true);
+        //pageView = AnalyticsUtils.ACTION_EXPORT_SPREADSHEETS;
+        //sendRequest.setSendSpreadsheets(true);
     }
-    AnalyticsUtils.sendPageViews(this, pageView);
+    //AnalyticsUtils.sendPageViews(this, pageView);
     sendRequest.setAccount(account);
     checkPermissions();
   }
@@ -211,14 +187,6 @@ public abstract class AbstractSendToGoogleActivity extends AbstractMyTracksActiv
   private void checkPermissions() {
     // Check Drive permission
     boolean needDrivePermission = sendRequest.isSendDrive();
-    if (!needDrivePermission && sendRequest.isSendFusionTables()) {
-      needDrivePermission = PreferencesUtils.getBoolean(this,
-          R.string.export_google_fusion_tables_public_key,
-          PreferencesUtils.EXPORT_GOOGLE_FUSION_TABLES_PUBLIC_DEFAULT);
-    }
-    if (!needDrivePermission) {
-      needDrivePermission = sendRequest.isSendSpreadsheets();
-    }
 
     if (needDrivePermission) {
       startCheckPermission(SendToGoogleUtils.DRIVE_SCOPE);
@@ -243,22 +211,15 @@ public abstract class AbstractSendToGoogleActivity extends AbstractMyTracksActiv
     if (success) {
       if (scope.equals(SendToGoogleUtils.DRIVE_SCOPE)) {
         onDrivePermissionSuccess();
-      } else if (scope.equals(SendToGoogleUtils.FUSION_TABLES_SCOPE)) {
-        onFusionTablesSuccess();
-      } else {
-        onSpreadsheetsPermissionSuccess();
       }
     } else {
       if (userRecoverableIntent != null) {
         int requestCode;
         if (scope.equals(SendToGoogleUtils.DRIVE_SCOPE)) {
           requestCode = DRIVE_REQUEST_CODE;
-        } else if (scope.equals(SendToGoogleUtils.FUSION_TABLES_SCOPE)) {
-          requestCode = FUSION_TABLES_REQUEST_CODE;
-        } else {
-          requestCode = SPREADSHEETS_REQUEST_CODE;
+          startActivityForResult(userRecoverableIntent, requestCode);
         }
-        startActivityForResult(userRecoverableIntent, requestCode);
+
       } else {
         onPermissionFailure();
       }
@@ -305,24 +266,6 @@ public abstract class AbstractSendToGoogleActivity extends AbstractMyTracksActiv
     }
   }
 
-  private void onMapsPermissionSuccess() {
-    // Check Fusion Tables permission
-    if (sendRequest.isSendFusionTables()) {
-      startCheckPermission(SendToGoogleUtils.FUSION_TABLES_SCOPE);
-    } else {
-      onFusionTablesSuccess();
-    }
-  }
-
-  private void onFusionTablesSuccess() {
-    // Check Spreadsheets permission
-    if (sendRequest.isSendSpreadsheets()) {
-      startCheckPermission(SendToGoogleUtils.SPREADSHEETS_SCOPE);
-    } else {
-      onSpreadsheetsPermissionSuccess();
-    }
-  }
-
   /**
    * On spreadsheets permission success. If
    * <p>
@@ -332,13 +275,9 @@ public abstract class AbstractSendToGoogleActivity extends AbstractMyTracksActiv
    * <p>
    * isSendMaps -> start {@link SendMapsActivity}
    * <p>
-   * isSendFusionTables -> start {@link SendFusionTablesActivity}
-   * <p>
-   * isSendSpreadsheets -> start {@link SendSpreadsheetsActivity}
-   * <p>
    * else -> start {@link UploadResultActivity}
    */
-  private void onSpreadsheetsPermissionSuccess() {
+  private void onMapsPermissionSuccess() {
     Class<?> next;
     if (sendRequest.isSendDrive()) {
       if (sendRequest.isDriveSync()) {
@@ -349,11 +288,7 @@ public abstract class AbstractSendToGoogleActivity extends AbstractMyTracksActiv
       }
     } else if (sendRequest.isSendMaps()) {
       next = SendMapsActivity.class;
-    } else if (sendRequest.isSendFusionTables()) {
-      next = SendFusionTablesActivity.class;
-    } else if (sendRequest.isSendSpreadsheets()) {
-      next = SendSpreadsheetsActivity.class;
-    } else {
+    }  else {
       next = UploadResultActivity.class;
     }
     Intent intent = IntentUtils.newIntent(this, next)
@@ -418,7 +353,7 @@ public abstract class AbstractSendToGoogleActivity extends AbstractMyTracksActiv
    * @param trackIds the track ids
    */
   protected void playTracks(long[] trackIds) {
-    AnalyticsUtils.sendPageViews(this, AnalyticsUtils.ACTION_PLAY);
+    //AnalyticsUtils.sendPageViews(this, AnalyticsUtils.ACTION_PLAY);
     if (GoogleEarthUtils.isEarthInstalled(this)) {
       Intent intent = IntentUtils.newIntent(this, SaveActivity.class)
           .putExtra(SaveActivity.EXTRA_TRACK_IDS, trackIds)

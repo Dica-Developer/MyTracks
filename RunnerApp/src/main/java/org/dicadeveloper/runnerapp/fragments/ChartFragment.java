@@ -26,9 +26,12 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ZoomControls;
 
-import com.google.common.annotations.VisibleForTesting;
-
 import com.google.android.apps.mytracks.ChartView;
+import com.google.common.annotations.VisibleForTesting;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 import org.dicadeveloper.runnerapp.R;
 import org.dicadeveloper.runnerapp.TrackDetailActivity;
 import org.dicadeveloper.runnerapp.content.MyTracksLocation;
@@ -112,6 +115,16 @@ public class ChartFragment extends Fragment implements TrackDataListener {
   public View onCreateView(
       LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.chart, container, false);
+
+    GraphView graph = (GraphView) view.findViewById(R.id.graph);
+    LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+            new DataPoint(0, 1),
+            new DataPoint(1, 5),
+            new DataPoint(2, 3),
+            new DataPoint(3, 2),
+            new DataPoint(4, 6)
+    });
+    graph.addSeries(series);
     return view;
   }
 

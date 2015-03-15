@@ -59,7 +59,6 @@ import org.dicadeveloper.runnerapp.io.file.TrackFileFormat;
 import org.dicadeveloper.runnerapp.io.file.exporter.SaveActivity;
 import org.dicadeveloper.runnerapp.services.TrackRecordingServiceConnection;
 import org.dicadeveloper.runnerapp.settings.SettingsActivity;
-import org.dicadeveloper.runnerapp.util.AnalyticsUtils;
 import org.dicadeveloper.runnerapp.util.ApiAdapterFactory;
 import org.dicadeveloper.runnerapp.util.CalorieUtils;
 import org.dicadeveloper.runnerapp.util.CalorieUtils.ActivityType;
@@ -190,13 +189,13 @@ public class TrackDetailActivity extends AbstractSendToGoogleActivity
     public void onClick(View v) {
       if (recordingTrackPaused) {
         // Paused -> Resume
-        AnalyticsUtils.sendPageViews(TrackDetailActivity.this, AnalyticsUtils.ACTION_RESUME_TRACK);
+        //AnalyticsUtils.sendPageViews(TrackDetailActivity.this, AnalyticsUtils.ACTION_RESUME_TRACK);
         updateMenuItems(true, false);
         TrackRecordingServiceConnectionUtils.resumeTrack(trackRecordingServiceConnection);
         trackController.update(true, false);
       } else {
         // Recording -> Paused
-        AnalyticsUtils.sendPageViews(TrackDetailActivity.this, AnalyticsUtils.ACTION_PAUSE_TRACK);
+        //AnalyticsUtils.sendPageViews(TrackDetailActivity.this, AnalyticsUtils.ACTION_PAUSE_TRACK);
         updateMenuItems(true, true);
         TrackRecordingServiceConnectionUtils.pauseTrack(trackRecordingServiceConnection);
         trackController.update(true, true);
@@ -207,7 +206,7 @@ public class TrackDetailActivity extends AbstractSendToGoogleActivity
   private final OnClickListener stopListener = new OnClickListener() {
       @Override
     public void onClick(View v) {
-      AnalyticsUtils.sendPageViews(TrackDetailActivity.this, AnalyticsUtils.ACTION_STOP_RECORDING);
+      //AnalyticsUtils.sendPageViews(TrackDetailActivity.this, AnalyticsUtils.ACTION_STOP_RECORDING);
       updateMenuItems(false, true);
       TrackRecordingServiceConnectionUtils.stopRecording(
           TrackDetailActivity.this, trackRecordingServiceConnection, true);
@@ -274,7 +273,7 @@ public class TrackDetailActivity extends AbstractSendToGoogleActivity
 
     TrackRecordingServiceConnectionUtils.startConnection(this, trackRecordingServiceConnection);
     trackDataHub.start();
-    AnalyticsUtils.sendPageViews(this, AnalyticsUtils.PAGE_TRACK_DETAIL);
+    //AnalyticsUtils.sendPageViews(this, AnalyticsUtils.PAGE_TRACK_DETAIL);
   }
 
   @Override
@@ -300,7 +299,7 @@ public class TrackDetailActivity extends AbstractSendToGoogleActivity
     sharedPreferences.unregisterOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
     trackRecordingServiceConnection.unbind();
     trackDataHub.stop();
-    AnalyticsUtils.dispatch();
+    //AnalyticsUtils.dispatch();
   }
 
   @Override
@@ -392,7 +391,7 @@ public class TrackDetailActivity extends AbstractSendToGoogleActivity
     Intent intent;
     switch (item.getItemId()) {
       case R.id.track_detail_insert_marker:
-        AnalyticsUtils.sendPageViews(this, AnalyticsUtils.ACTION_INSERT_MARKER);
+        //AnalyticsUtils.sendPageViews(this, AnalyticsUtils.ACTION_INSERT_MARKER);
         intent = IntentUtils.newIntent(this, MarkerEditActivity.class)
             .putExtra(MarkerEditActivity.EXTRA_TRACK_ID, trackId);
         startActivity(intent);
@@ -486,8 +485,8 @@ public class TrackDetailActivity extends AbstractSendToGoogleActivity
   public void onExportDone(
       ExportType exportType, TrackFileFormat trackFileFormat, Account account) {
     if (exportType == ExportType.EXTERNAL_STORAGE) {
-      AnalyticsUtils.sendPageViews(
-          this, AnalyticsUtils.ACTION_EXPORT_PREFIX + trackFileFormat.getExtension());
+      //AnalyticsUtils.sendPageViews(
+      //    this, AnalyticsUtils.ACTION_EXPORT_PREFIX + trackFileFormat.getExtension());
       Intent intent = IntentUtils.newIntent(this, SaveActivity.class)
           .putExtra(SaveActivity.EXTRA_TRACK_IDS, new long[] { trackId })
           .putExtra(SaveActivity.EXTRA_TRACK_FILE_FORMAT, (Parcelable) trackFileFormat);
