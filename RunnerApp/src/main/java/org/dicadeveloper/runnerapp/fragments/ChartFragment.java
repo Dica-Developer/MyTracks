@@ -26,11 +26,12 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ZoomControls;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.google.android.apps.mytracks.ChartView;
 import com.google.common.annotations.VisibleForTesting;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
 
 import org.dicadeveloper.runnerapp.R;
 import org.dicadeveloper.runnerapp.TrackDetailActivity;
@@ -116,15 +117,36 @@ public class ChartFragment extends Fragment implements TrackDataListener {
       LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.chart, container, false);
 
-    GraphView graph = (GraphView) view.findViewById(R.id.graph);
-    LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-            new DataPoint(0, 1),
-            new DataPoint(1, 5),
-            new DataPoint(2, 3),
-            new DataPoint(3, 2),
-            new DataPoint(4, 6)
-    });
-    graph.addSeries(series);
+      LineChart graph = (LineChart) view.findViewById(R.id.graph);
+
+      ArrayList<Entry> valsComp1 = new ArrayList<Entry>();
+      ArrayList<Entry> valsComp2 = new ArrayList<Entry>();
+
+      Entry c1e1 = new Entry(100.000f, 0); // 0 == quarter 1
+      valsComp1.add(c1e1);
+      Entry c1e2 = new Entry(50.000f, 1); // 1 == quarter 2 ...
+      valsComp1.add(c1e2);
+      // and so on ...
+
+      Entry c2e1 = new Entry(120.000f, 0); // 0 == quarter 1
+      valsComp2.add(c2e1);
+      Entry c2e2 = new Entry(110.000f, 1); // 1 == quarter 2 ...
+      valsComp2.add(c2e2);
+
+      LineDataSet setComp1 = new LineDataSet(valsComp1, "Company 1");
+      LineDataSet setComp2 = new LineDataSet(valsComp2, "Company 2");
+
+      ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
+      dataSets.add(setComp1);
+      dataSets.add(setComp2);
+
+      ArrayList<String> xVals = new ArrayList<String>();
+      xVals.add("1.Q"); xVals.add("2.Q"); xVals.add("3.Q"); xVals.add("4.Q");
+
+      LineData data = new LineData(xVals, dataSets);
+      graph.setData(data);
+      graph.invalidate(); // refresh
+
     return view;
   }
 

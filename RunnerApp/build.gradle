@@ -34,7 +34,8 @@ dependencies {
     compile 'com.google.guava:guava:17.0'
     compile 'org.osmdroid:osmdroid-android:4.3'
     compile 'org.slf4j:slf4j-simple:1.7.6'
-    compile 'com.jjoe64:graphview:4.0.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.0.9'
+    //compile 'com.jjoe64:graphview:4.0.0'
     //compile 'org.osmdroid:osmdroid-third-party:4.3'
     compile files('libs/antlib.jar')
     compile files('libs/gdata-client-1.0.jar')

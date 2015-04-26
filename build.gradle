@@ -12,6 +12,6 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
-        maven { url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases" }
+        maven { url "https://jitpack.io" }
     }
 }
